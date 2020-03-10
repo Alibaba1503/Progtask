@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500&display=swap" rel="stylesheet">
+    <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Progtask</title>
+</head>
+<body>
+    <header class="header_bar">
+        <% if(loggedIn == true) { %>
+            <a class="home-page" href="/user/<%= user.id %>">PROGTASK</a>
+            <div class="nav-userpage">
+                <a href="/user/userpage/<%= user.id %>">USERPAGE</a>
+            </div>
+            <div class="nav-tasklist">
+                <a href="/user/tasklist/<%= user.id %>">TASKLIST</a>
+            </div>
+            <div class="nav-settings">
+                <a href="/user/settings/<%= user.id %>">SETTINGS</a>
+            </div>
+            <form action="/" method="get">
+                <button class="logout">
+                    <a>logout</a>
+                </button>
+            </form>
+        <% } else { %>
+            <h1 class="home-page">PROGTASK</h1>
+            <form action="/login" method="GET">
+                <button class="login">
+                    <a>LOGIN / SIGNIN</a>
+                </button>
+            </form>
+        <% } %>
+    </header>
+    <% if( loggedIn == true ) { %>
+        <div class="task_box">
+            <div class="task_title">
+                <h1>TASK</h1>
+            </div>
+            <div class="list">
+                <div class="ul-list" id='list1'>
+                    <% tasks.forEach(function( task ) { %>
+                        <% if (task.listTask == 'list') {%>
+                            <div id='list' class="list-li" draggable="true">
+                                <h2 id="taskTitle" class="list-h1"><%= task.title %></h2>
+                                <p id="taskId"><%=task.id %></p>
+                                <form method="GET" action="/task/<%= task._id %>">
+                                    <button type="submit" class="delete-button"><p>Delete</p></button>
+                                </form>
+                            </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+        <div class="progress_box">
+            <div class="progress_title">
+                <h1>IN PROGRESS</h1>
+            </div>
+            <div class="list">
+                <div class="ul-list" id='list2'>
+                    <% tasks.forEach(function( task ) { %>
+                        <% if (task.listTask == 'list_2') {%>
+                            <div id='list' class="list-li" draggable="true">
+                                <h2 id="taskTitle2" class="list-h1"><%= task.title %></h2>
+                                <p id="taskId2"><%= task.id %></p>
+                                <form method="GET" action="/task/<%= task._id %>">
+                                    <button type="submit" class="delete-button"><p>Delete</p></button>
+                                </form>
+                            </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+        <div class="done_box">
+            <div class="done_title">
+                <h1>DONE</h1>
+            </div>
+            <div class="list">
+                <div class="ul-list" id='list3'>
+                    <% tasks.forEach(function( task ) { %>
+                        <% if(task.listTask == 'list_3'){ %>
+                            <div id='list' class="list-li" draggable="true">
+                                <h2 id="taskTitle3" class="list-h1"><%= task.title %></h2>
+                                <p id="taskId3"><%= task.id %></p>
+                                <form method="GET" action="/task/<%= task._id %>">
+                                    <button type="submit" class="delete-button"><p>Delete</p></button>
+                                </form>
+                            </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+        <form method="POST" action="/user/<%= id %>">
+            <input type="text" name="title" placeholder="Add task..." class="task-input">
+            <button class="add_button">
+                <h2>ADD</h2>
+            </button>
+        </form>
+    <% } else { %>
+        <div class="welcom">
+            <h1>Welcom to Progtask</h1>
+            <h3>Here you have a view of your project and can you track your progress</h3>
+        </div>
+    <% } %>
+    
+    <script type="text/javascript">
+        const list1 = document.getElementById('list1');
+        const list2 = document.getElementById('list2');
+        const list3 = document.getElementById('list3');
+        
+
+        new Sortable(list1, {
+            group: 'shared',
+            animation: 150,
+            dragClass: "ul-list",
+            onAdd: function Updatelist() {
+                console.log(document.getElementById('taskTitle').innerText)
+                const url=`/task/updatelist/${document.getElementById('taskId').innerText}`;
+                var data = {
+                    listTask: 'list',
+                    titleTask: document.getElementById('taskTitle').innerText
+                }
+                $.ajax({
+                    url: url,
+                    data: data,
+                    type: 'POST'
+                })
+            },  
+            store: {
+                /**
+                 * Get the order of elements. Called once during initialization.
+                 * @param   {Sortable}  sortable 
+                 * @returns {Array} 
+                 */
+                get: function (sortable) {
+                    var order = localStorage.getItem(sortable.options.group.name);
+                    return order ? order.split('|') : [];
+                },
+        
+                /**
+                 * Save the order of elements. Called onEnd (when the item is dropped).
+                 * @param {Sortable}  sortable 
+                 */
+                set: function (sortable) {
+                    var order = sortable.toArray();
+                    localStorage.setItem(sortable.options.group.name, order.join('|'));
+                }
+            }
+        });
+
+        new Sortable(list2, {
+            group: 'shared',
+            animation: 150,
+            dragClass: "ul-list",
+            onAdd: function Updatelist() {
+                console.log(document.getElementById('taskTitle').innerText)
+                const url=`/task/updatelist/${document.getElementById('taskId').innerText}`;
+                var data = {
+                    listTask: 'list_2',
+                    titleTask: document.getElementById('taskTitle').innerText
+                }
+                $.ajax({
+                    url: url,
+                    data: data,
+                    type: 'POST'
+                })
+            },
+            store: {
+
+                get: function (sortable) {
+                    var order = localStorage.getItem(sortable.options.group.name);
+                    return order ? order.split('|') : [];
+                },
+
+                set: function (sortable) {
+                    var order = sortable.toArray();
+                    localStorage.setItem(sortable.options.group.name, order.join('|'));
+                }
+            }
+        });
+
+        new Sortable(list3, {
+            group: 'shared',
+            animation: 120,
+            dragClass: "ul-list",
+            onAdd: function Updatelist() {
+                console.log(document.getElementById('taskTitle2').innerText)
+                const url=`/task/updatelist/${document.getElementById('taskId2').innerText}`;
+                var data = {
+                    listTask: 'list_3',
+                    titleTask: document.getElementById('taskTitle2').innerText
+                }
+                $.ajax({
+                    url: url,
+                    data: data,
+                    type: 'POST'
+                })
+            },
+            store: {
+
+                get: function (sortable) {
+                    var order = localStorage.getItem(sortable.options.group.name);
+                    return order ? order.split('|') : [];
+                },
+
+                set: function (sortable) {
+                    var order = sortable.toArray();
+                    localStorage.setItem(sortable.options.group.name, order.join('|'));
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <clipPath id="clip-Web_1920_13">
+      <rect width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_13" data-name="Web 1920 – 13" clip-path="url(#clip-Web_1920_13)">
+    <rect width="1920" height="1080" fill="#212128"/>
+    <text id="PROGRESS" transform="translate(796 524)" fill="#fff" font-size="373" font-family="SegoeUI, Segoe UI" opacity="0.04"><tspan x="-886.786" y="0">PROGRESS</tspan></text>
+    <text id="TASK" transform="translate(1599 986)" fill="#fff" font-size="373" font-family="SegoeUI, Segoe UI" opacity="0.04"><tspan x="-412.522" y="0">TASK</tspan></text>
+  </g>
+</svg>

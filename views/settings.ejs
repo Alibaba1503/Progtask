@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/settings.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>settings</title>
+</head>
+<body>
+    <header class="header_bar">
+        <a class="home-page" href="/user/<%= user.id %>">PROGTASK</a>
+        <div class="nav-userpage">
+            <a href="/user/userpage/<%= user.id %>">USERPAGE</a>
+        </div>
+        <div class="nav-tasklist">
+            <a href="/user/tasklist/<%= user.id %>">TASKLIST</a>
+        </div>
+        <div class="nav-settings">
+            <a href="/user/settings/<%= user.id %>">SETTINGS</a>
+        </div>
+        <form action="/" method="get">
+            <button class="logout">
+                <a>logout</a>
+            </button>
+        </form>
+    </header>
+    <h1 class="h1-title">SETTINGS</h1>
+    <% if( notifi == true ){ %>
+            <div class="side-notif">
+                <a class="notif-underline" href="/user/settings/<%= user.id %>">NOTIFICATION</a>
+            </div>
+            <div class="side-theme">
+                <a href="/user/settings/theme/<%= user.id %>">THEME</a>
+            </div>
+            <div class="side-about">
+                <a href="/user/settings/about/<%= user.id %>">ABOUT</a>
+            </div>
+        <h3 class="text-notifi">Turn on notification</h3>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+          <h3 class="noti-about">Notify me about...</h3>
+        <label class="container">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            <p class="checkbox-para">Day before deadline</p>
+        </label>
+        <label class="container2">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            <p class="checkbox-para">When planning changed</p>
+        </label>
+        <label class="container3">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            <p class="checkbox-para">For newsletter</p>
+        </label>
+    <% } %>
+    <% if( theme == true ){ %>
+            <div class="side-notif">
+                <a href="/user/settings/<%= user.id %>">NOTIFICATION</a>
+            </div>
+            <div class="side-theme">
+                <a class="theme-underline" href="/user/settings/theme/<%= user.id %>">THEME</a>
+            </div>
+            <div class="side-about">
+                <a href="/user/settings/about/<%= user.id %>">ABOUT</a>
+            </div>
+            <div class="dark-theme">
+                <h3 class="enable-text">Enable dark theme</h3>
+                <label class="switch-theme">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="light-theme">
+                <h3 class="enable-text" >Enable light theme</h3>
+                <label class="switch-theme">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+    <% } %>
+    <% if( about == true ){ %>
+            <div class="side-notif">
+                <a href="/user/settings/<%= user.id %>">NOTIFICATION</a>
+            </div>
+            <div class="side-theme">
+                <a href="/user/settings/theme/<%= user.id %>">THEME</a>
+            </div>
+            <div class="side-about">
+                <a class="about-underline" href="/user/settings/about/<%= user.id %>">ABOUT</a>
+            </div>
+        <div class="text-area">
+            <h2>Hi, my name is Alexander Callebaut...</h2>
+            <p class="text">I'm a programmer who loves to code. I create sites totaly on my own. This is my first complete site ever made and want to make so much more. You can follow me if you want.</p>
+            <img width="30" height="30" src="/img/Group 30.svg" alt="">
+            <a href="https://www.instagram.com/callebaut_alexander/?hl=nl" class="insta-name">@callebaut_alexander</a>
+        </div>
+    <% } %>
+</body>
+</html>

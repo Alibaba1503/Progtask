@@ -1,0 +1,222 @@
+body {
+    background-color: #212128;
+    background-image: url(../img/Web\ 1920\ –\ 13.svg);
+    padding: 0px;
+}
+
+.header_bar {
+    position: absolute;
+    width: 100%;
+    height: 102px;
+    left: 0px;
+    top: 0px;
+}
+
+.header_bar .home-page {
+    text-decoration: none;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+
+    color: #ffffff;
+
+    top: 40px;
+    margin-left: 7%;
+}
+
+.logout {
+    position: absolute;
+    width: 99px;
+    height: 43px;
+    right: 7%;
+    top: 30px;
+    cursor: pointer;
+
+    background: #EF4747 ;
+    border: 2px solid #212128;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+.logout a {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+
+    color: #ffffff;
+    margin-top: 9px;
+}
+
+.nav-userpage {
+    position: absolute;
+    right: 40%;
+    top: 40px;
+}
+
+.nav-userpage a {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    color: #FFFFFF;
+}
+
+.nav-tasklist {
+    position: absolute;
+    right: 30%;
+    top: 40px;
+}
+
+.nav-tasklist a {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    color: #FFFFFF;
+}
+
+.nav-settings {
+    position: absolute;
+    right: 20%;
+    top: 40px;
+}
+
+.nav-settings a {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    color: #FFFFFF;
+}
+
+.view-side {
+    text-align: center;
+    width: 80%;
+    height: 100%;
+    margin-left: 50px;
+    margin-top: 80px;
+}
+
+.view-side h1 {
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-left: 10%;
+    text-decoration: underline;
+
+    top: 10px;
+}
+
+.view-box {
+    text-align: left;
+    width: auto;
+    height: auto;
+    margin-top: 75px;
+    margin-left: 35%;
+
+}
+
+.view-side .userinfo {
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffffff;
+    width: 400px;
+
+    top: 30px;
+    top: 5px;
+    margin-top: 35px;
+}
+
+.view-box input {
+    position: relative;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+
+    top: -10px;
+    margin-top: 20px;
+}
+
+.view-box input[type=text] {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    padding-left: 10px;
+}
+
+.save-button {
+    position: absolute;
+    width: 110px;
+    height: 40px;
+    margin-top: 13px;
+    margin-left: 20px;
+
+    background-color: #EF4747;
+    border-radius: 30px;
+    border: none;
+}
+
+.save-button p {
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+
+    margin-top: 8px;
+
+    color: #FFFFFF;
+}
+
+.change {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    margin-top: -50px;
+    margin-left: 450px;
+
+    cursor: pointer;
+
+    background-color: #EF4747;
+    border-radius: 30px;
+    border: none;
+}
+
+.change p {
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+
+    margin-top: 8px;
+
+    color: #FFFFFF;
+}
+
+.error {
+    text-align: center;
+    position: relative;
+    left: 38%;
+    width: 500px;
+    height: 50px;
+    background-color: #DC4F64;
+
+    border-radius: 10px;
+}
+
+.error-text {
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: #ffffff;
+    top: 14px;
+    margin-top: 20px;
+}
