@@ -2,7 +2,7 @@
  
  " Site where you can get a view over your tasks "
 
- " To work on it: git clone https://github.com/Alibaba1503/Progtask.git "
+ " To work on it: git clone https://github.com/Alibaba1503/Progtask.git  or if you have the map do: git pull "
 
  " When finishd working do "
 
