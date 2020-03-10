@@ -1,13 +1,15 @@
-"# progtask" 
+# progtask
  
- " Site where you can get a view over your tasks "
+Site where you can get a view over your tasks
 
- " To work on it: git clone https://github.com/Alibaba1503/Progtask.git  or if you have the map do: git pull "
+To work on it: git clone https://github.com/Alibaba1503/Progtask.git  
 
- " When finishd working do "
+or if you have already the map do: git pull
 
- " git add .  "
+When finishd working do:
 
- " git commit -m "updated" "
+git add .
 
- " git push -u origin master "
+git commit -m "updated"
+
+git push -u origin master
