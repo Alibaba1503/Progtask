@@ -48,7 +48,7 @@
                         <% if (task.listTask == 'list') {%>
                             <div id='list' class="list-li" draggable="true">
                                 <h2 id="taskTitle" class="list-h1"><%= task.title %></h2>
-                                <p id="taskId"><%=task.id %></p>
+                                <p id="taskId"><%=task._id %></p>
                                 <form method="GET" action="/task/<%= task._id %>">
                                     <button type="submit" class="delete-button"><p>Delete</p></button>
                                 </form>
@@ -68,7 +68,7 @@
                         <% if (task.listTask == 'list_2') {%>
                             <div id='list' class="list-li" draggable="true">
                                 <h2 id="taskTitle2" class="list-h1"><%= task.title %></h2>
-                                <p id="taskId2"><%= task.id %></p>
+                                <p id="taskId2"><%= task._id %></p>
                                 <form method="GET" action="/task/<%= task._id %>">
                                     <button type="submit" class="delete-button"><p>Delete</p></button>
                                 </form>
@@ -88,7 +88,7 @@
                         <% if(task.listTask == 'list_3'){ %>
                             <div id='list' class="list-li" draggable="true">
                                 <h2 id="taskTitle3" class="list-h1"><%= task.title %></h2>
-                                <p id="taskId3"><%= task.id %></p>
+                                <p id="taskId3"><%= task._id %></p>
                                 <form method="GET" action="/task/<%= task._id %>">
                                     <button type="submit" class="delete-button"><p>Delete</p></button>
                                 </form>
