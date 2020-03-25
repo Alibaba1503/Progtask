@@ -19,13 +19,14 @@ router.param('id', (req, res, next, id)=>{
     })
 });
 
+
 router.get('/:id', (req, res)=> {
     Task.find({ userId : req.params.id } ,(err, tasks, count)=>{
         User.findOne({ _id : req.params.id }, (err, user)=> {
             res.render('index', {
                 id: req.params.id,
-                tasks: tasks,
                 user: user,
+                tasks: tasks,
                 loggedIn: true,
                 Sortable: Sortable
             })

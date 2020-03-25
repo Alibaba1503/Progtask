@@ -46,9 +46,9 @@
                 <div class="ul-list" id='list1'>
                     <% tasks.forEach(function( task ) { %>
                         <% if (task.listTask == 'list') {%>
-                            <div id='list' class="list-li" draggable="true">
+                            <div id='<%= task._id %>' class="list-li" draggable="true">
                                 <h2 id="taskTitle" class="list-h1"><%= task.title %></h2>
-                                <p id="taskId"><%=task._id %></p>
+                                <p id="taskId2"><%= task._id %></p>
                                 <form method="GET" action="/task/<%= task._id %>">
                                     <button type="submit" class="delete-button"><p>Delete</p></button>
                                 </form>
@@ -64,9 +64,9 @@
             </div>
             <div class="list">
                 <div class="ul-list" id='list2'>
-                    <% tasks.forEach(function( task ) { %>
+                   <% tasks.forEach(function( task ) { %>
                         <% if (task.listTask == 'list_2') {%>
-                            <div id='list' class="list-li" draggable="true">
+                            <div id='<%= task._id %>' class="list-li2" draggable="true">
                                 <h2 id="taskTitle2" class="list-h1"><%= task.title %></h2>
                                 <p id="taskId2"><%= task._id %></p>
                                 <form method="GET" action="/task/<%= task._id %>">
@@ -86,13 +86,14 @@
                 <div class="ul-list" id='list3'>
                     <% tasks.forEach(function( task ) { %>
                         <% if(task.listTask == 'list_3'){ %>
-                            <div id='list' class="list-li" draggable="true">
+                            <div id='<%= task._id %>' class="list-li3" draggable="true" on>
                                 <h2 id="taskTitle3" class="list-h1"><%= task.title %></h2>
                                 <p id="taskId3"><%= task._id %></p>
                                 <form method="GET" action="/task/<%= task._id %>">
                                     <button type="submit" class="delete-button"><p>Delete</p></button>
                                 </form>
                             </div>
+                        
                         <% } %>
                     <% }); %>
                 </div>
@@ -115,7 +116,6 @@
         const list1 = document.getElementById('list1');
         const list2 = document.getElementById('list2');
         const list3 = document.getElementById('list3');
-        
 
         new Sortable(list1, {
             group: 'shared',
@@ -123,7 +123,7 @@
             dragClass: "ul-list",
             onAdd: function Updatelist() {
                 console.log(document.getElementById('taskTitle').innerText)
-                const url=`/task/updatelist/${document.getElementById('taskId').innerText}`;
+                const url=`/task/updatelist/${document.getElementsByClassName("list-li3")[0].id}`;
                 var data = {
                     listTask: 'list',
                     titleTask: document.getElementById('taskTitle').innerText
@@ -133,6 +133,7 @@
                     data: data,
                     type: 'POST'
                 })
+                console.log('succeeded')
             },  
             store: {
                 /**
@@ -162,7 +163,7 @@
             dragClass: "ul-list",
             onAdd: function Updatelist() {
                 console.log(document.getElementById('taskTitle').innerText)
-                const url=`/task/updatelist/${document.getElementById('taskId').innerText}`;
+                const url=`/task/updatelist/${document.getElementsByClassName("list-li")[1].id}`;
                 var data = {
                     listTask: 'list_2',
                     titleTask: document.getElementById('taskTitle').innerText
@@ -172,6 +173,7 @@
                     data: data,
                     type: 'POST'
                 })
+                console.log('succeeded')
             },
             store: {
 
@@ -193,7 +195,7 @@
             dragClass: "ul-list",
             onAdd: function Updatelist() {
                 console.log(document.getElementById('taskTitle2').innerText)
-                const url=`/task/updatelist/${document.getElementById('taskId2').innerText}`;
+                const url=`/task/updatelist/${document.getElementsByClassName("list-li2")[1].id}`;
                 var data = {
                     listTask: 'list_3',
                     titleTask: document.getElementById('taskTitle2').innerText
