@@ -40,7 +40,7 @@ router.post('/:id', (req, res)=> {
         const task = new Task();
 
         task.title = req.body.title;
-        task.listTask = 'list';
+        task.status = 'task';
         task._id = new mongoose.Types.ObjectId;
         task.userId = userId;
 

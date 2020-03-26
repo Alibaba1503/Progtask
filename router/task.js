@@ -53,7 +53,7 @@ router.post('/updatelist/:id', (req, res)=> {
             res.send(err)
         }
         if(task){
-            task.updateOne({ $set: { listTask: req.body.listTask }}, (err, task)=>{
+            task.updateOne({ $set: { status: req.body.status }}, (err, task)=>{
                 if(err){
                     res.send(err)
                 }

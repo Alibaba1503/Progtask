@@ -45,7 +45,7 @@
             <div class="list">
                 <div class="ul-list" id='list1'>
                     <% tasks.forEach(function( task ) { %>
-                        <% if (task.listTask == 'list') {%>
+                        <% if (task.status == 'task') {%>
                             <div id='<%= task._id %>' class="list-li" draggable="true">
                                 <h2 id="taskTitle" class="list-h1"><%= task.title %></h2>
                                 <p id="taskId2"><%= task._id %></p>
@@ -65,7 +65,7 @@
             <div class="list">
                 <div class="ul-list" id='list2'>
                    <% tasks.forEach(function( task ) { %>
-                        <% if (task.listTask == 'list_2') {%>
+                        <% if (task.status == 'inProgress') {%>
                             <div id='<%= task._id %>' class="list-li2" draggable="true">
                                 <h2 id="taskTitle2" class="list-h1"><%= task.title %></h2>
                                 <p id="taskId2"><%= task._id %></p>
@@ -85,7 +85,7 @@
             <div class="list">
                 <div class="ul-list" id='list3'>
                     <% tasks.forEach(function( task ) { %>
-                        <% if(task.listTask == 'list_3'){ %>
+                        <% if(task.status == 'done'){ %>
                             <div id='<%= task._id %>' class="list-li3" draggable="true" on>
                                 <h2 id="taskTitle3" class="list-h1"><%= task.title %></h2>
                                 <p id="taskId3"><%= task._id %></p>
@@ -125,7 +125,7 @@
                 console.log(document.getElementById('taskTitle').innerText)
                 const url=`/task/updatelist/${document.getElementsByClassName("list-li3")[0].id}`;
                 var data = {
-                    listTask: 'list',
+                    status: 'task',
                     titleTask: document.getElementById('taskTitle').innerText
                 }
                 $.ajax({
@@ -165,7 +165,7 @@
                 console.log(document.getElementById('taskTitle').innerText)
                 const url=`/task/updatelist/${document.getElementsByClassName("list-li")[1].id}`;
                 var data = {
-                    listTask: 'list_2',
+                    status: 'inProgress',
                     titleTask: document.getElementById('taskTitle').innerText
                 }
                 $.ajax({
@@ -197,7 +197,7 @@
                 console.log(document.getElementById('taskTitle2').innerText)
                 const url=`/task/updatelist/${document.getElementsByClassName("list-li2")[1].id}`;
                 var data = {
-                    listTask: 'list_3',
+                    status: 'done',
                     titleTask: document.getElementById('taskTitle2').innerText
                 }
                 $.ajax({

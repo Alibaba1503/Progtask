@@ -11,7 +11,7 @@ const tasks = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId
     },
-    listTask: {
+    status: {
         type: String,
     },
     DateTask: {
